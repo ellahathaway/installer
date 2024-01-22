@@ -20,7 +20,9 @@ public class ArtifactsSizeTest : SdkTests
 {
     private const int SizeThresholdPercentage = 25;
     private static readonly string BaselineFilePath = BaselineHelper.GetBaselineFilePath($"ArtifactsSizes/{Config.TargetRid}.txt");
+    private static readonly string BaselineWarningsOutputFilePath = Path.Combine(LogsDirectory, $"ArtifactsSizeTestWarnings_{Config.TargetRid}.txt");
     private readonly Dictionary<string, long> BaselineFileContent = new();
+    private static List<string> BaselineWarnings = new List<string>();
     private Dictionary<string, int> FilePathCountMap = new();
 
     public ArtifactsSizeTest(ITestOutputHelper outputHelper) : base(outputHelper)
@@ -53,7 +55,7 @@ public class ArtifactsSizeTest : SdkTests
         {
             if (!BaselineFileContent.TryGetValue(entry.FilePath, out long baselineBytes))
             {
-                OutputHelper.LogWarningMessage($"{entry.FilePath} does not exist in baseline. Adding it to the baseline file");
+                BaselineWarnings.Add($"{entry.FilePath} does not exist in baseline. Adding it to the baseline file");
             }
             else
             {
@@ -65,6 +67,12 @@ public class ArtifactsSizeTest : SdkTests
         {
             string actualFilePath = Path.Combine(LogsDirectory, $"UpdatedArtifactsSizes_{Config.TargetRid}.txt");
             File.WriteAllLines(actualFilePath, tarEntries.Select(entry => $"{entry.FilePath}: {entry.Bytes}"));
+
+            if (BaselineWarnings.Any())
+            {
+                File.WriteAllLines(BaselineWarningsOutputFilePath, BaselineWarnings);
+                OutputHelper.LogWarningMessage($"Differences found. Review the baseline warnings in {Path.GetFileName(BaselineWarningsOutputFilePath)} and the updated baseline file {Path.GetFileName(actualFilePath)}");
+            }
         }
         catch (IOException ex)
         {
@@ -143,19 +151,24 @@ public class ArtifactsSizeTest : SdkTests
     {
         if (fileSize == 0 && baselineSize != 0)
         {
-            OutputHelper.LogWarningMessage($"'{filePath}' is now 0 bytes. It was {baselineSize} bytes");
+            BaselineWarnings.Add($"'{filePath}' is now 0 bytes. It was {baselineSize} bytes");
         }
         else if (fileSize != 0 && baselineSize == 0)
         {
-            OutputHelper.LogWarningMessage($"'{filePath}' is no longer 0 bytes. It is now {fileSize} bytes");
+            BaselineWarnings.Add($"'{filePath}' is no longer 0 bytes. It is now {fileSize} bytes");
         }
-        else if (baselineSize != 0 && (((fileSize - baselineSize) / (double)baselineSize) * 100) >= SizeThresholdPercentage)
+        else if (baselineSize != 0)
         {
-            OutputHelper.LogWarningMessage($"'{filePath}' increased in size by more than {SizeThresholdPercentage}%. It was originally {baselineSize} bytes and is now {fileSize} bytes");
-        }
-        else if (baselineSize != 0 && (((baselineSize - fileSize) / (double)baselineSize) * 100) >= SizeThresholdPercentage)
-        {
-            OutputHelper.LogWarningMessage($"'{filePath}' decreased in size by more than {SizeThresholdPercentage}%. It was originally {baselineSize} bytes and is now {fileSize} bytes");
+            double sizeChangePercentage = ((fileSize - baselineSize) / (double)baselineSize) * 100;
+
+            if (sizeChangePercentage >= SizeThresholdPercentage)
+            {
+                BaselineWarnings.Add($"'{filePath}' increased in size by more than {SizeThresholdPercentage}%. It was originally {baselineSize} bytes and is now {fileSize} bytes");
+            }
+            else if (sizeChangePercentage <= -SizeThresholdPercentage)
+            {
+                BaselineWarnings.Add($"'{filePath}' decreased in size by more than {SizeThresholdPercentage}%. It was originally {baselineSize} bytes and is now {fileSize} bytes");
+            }
         }
     }
 }

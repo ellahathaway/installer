@@ -143,6 +143,7 @@ jobs:
       find test/ -type f -name "*.binlog" -exec cp {} --parents -t ${targetFolder} \;
       find test/ -type f -name "Updated*.diff" -exec cp {} --parents -t ${targetFolder} \;
       find test/ -type f -name "Updated*.txt" -exec cp {} --parents -t ${targetFolder} \;
+      find test/ -type f -name "ArtifactsSizeTestWarnings*.txt" -exec cp {} --parents -t ${targetFolder} \;
     displayName: Prepare BuildLogs staging directory
     continueOnError: true
     condition: succeededOrFailed()
