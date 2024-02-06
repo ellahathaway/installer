@@ -37,6 +37,36 @@
     // Only filters which start with submodule's path are applied when syncing submodules
     "defaults": {
         "defaultRef": "main",
+        "include": [
+            "**/*",
+            "*.bmp",
+            "*.doc",
+            "*.docx",
+            "*.gif",
+            "*.ico",
+            "*.jpg",
+            "*.JPG",
+            "*.pdf",
+            "*.png",
+            "*.PNG",
+            "*.rtf",
+            "*.snk",
+            "*.vsd",
+            "*.vsdx",
+            "*.xlsx",
+            "*.ttf",
+            "*.cur",
+            "*.icm",
+            "*.reg",
+            "**/test/*",
+            "**/Test/*",
+            "**/Test/*",
+            "**/testCert*.pfx",
+            "**/TestCert*.pfx",
+            "**/tests/*",
+            "eng/common/loc/*.lss",
+            "**/eng/common/loc/*.lss"
+        ],
         "exclude": [
             "**/*.dll",
             "**/*.Dll",
@@ -70,6 +100,17 @@
         {
             "name": "aspnetcore",
             "defaultRemote": "https://github.com/dotnet/aspnetcore",
+            "include":[
+                "**/*",
+                "src/aspnetcore/**/TestCertificates/*",
+                "src/aspnetcore/src/*.eot",
+                "src/aspnetcore/src/*.otf",
+                "src/aspnetcore/src/*.woff",
+                "src/aspnetcore/src/*.woff2",
+                "src/aspnetcore/src/Components/Web.JS/dist/Release/blazor.*.js",
+                "src/aspnetcore/src/ProjectTemplates/Web.ProjectTemplates/**/app.db",
+                "src/aspnetcore/src/submodules/spa-templates/**/app.db"
+            ],
             "exclude": [
                 "src/submodules/MessagePack-CSharp/**/*.dll",
                 "**/samples/**/jquery-validation-unobtrusive/.bower.json",
@@ -104,7 +145,11 @@
         },
         {
             "name": "fsharp",
-            "defaultRemote": "https://github.com/dotnet/fsharp"
+            "defaultRemote": "https://github.com/dotnet/fsharp",
+            "include":[
+                "src/fsharp/**/signedtests/*",
+                "src/fsharp/src/fsi/fsi.res"
+            ]
         },
         {
             "name": "installer",
@@ -116,7 +161,11 @@
         },
         {
             "name": "msbuild",
-            "defaultRemote": "https://github.com/dotnet/msbuild"
+            "defaultRemote": "https://github.com/dotnet/msbuild",
+            "include": [
+                "**/*",
+                "src/msbuild/src/Tasks.UnitTests/*"
+            ]
         },
         {
             "name": "nuget-client",
@@ -128,11 +177,20 @@
         },
         {
             "name": "razor",
-            "defaultRemote": "https://github.com/dotnet/razor"
+            "defaultRemote": "https://github.com/dotnet/razor",
+            "include": [
+                "**/*",
+                "src/razor/**/SampleApp/**/fonts/*"
+            ]
         },
         {
             "name": "roslyn",
-            "defaultRemote": "https://github.com/dotnet/roslyn"
+            "defaultRemote": "https://github.com/dotnet/roslyn",
+            "include": [
+                "**/*",
+                "src/roslyn/**/CodeAnalysisTest/*",
+                "src/roslyn/src/ExpressionEvaluator/Core/Source/ExpressionCompiler/Resources/WindowsProxy.winmd"
+            ]
         },
         {
             "name": "roslyn-analyzers",
@@ -140,7 +198,17 @@
         },
         {
             "name": "runtime",
-            "defaultRemote": "https://github.com/dotnet/runtime"
+            "defaultRemote": "https://github.com/dotnet/runtime",
+            "include":[
+                "**/*",
+                "src/runtime/src/*.woff",
+                "src/runtime/src/*.woff2",
+                "src/runtime/src/libraries/System.Diagnostics.EventLog/src/Messages/EventLogMessages.res",
+                "src/runtime/src/libraries/System.Speech/src/*.upsmap",
+                "src/runtime/src/libraries/System.Text.Encoding.CodePages/src/Data/codepages.nlp",
+                "src/runtime/src/mono/wasm/testassets/*",
+                "src/runtime/src/native/external/brotli/common/dictionary.bin.br"
+            ]
         },
         {
             "name": "scenario-tests",
@@ -148,11 +216,22 @@
         },
         {
             "name": "sdk",
-            "defaultRemote": "https://github.com/dotnet/sdk"
+            "defaultRemote": "https://github.com/dotnet/sdk",
+            "include":[
+                "**/*",
+                "src/sdk/src/Assets/TestProjects/*"
+            ]
         },
         {
             "name": "source-build-externals",
             "defaultRemote": "https://github.com/dotnet/source-build-externals",
+            "include":[
+                "**/*",
+                "src/source-build-externals/src/azure-activedirectory-identitymodel-extensions-for-dotnet/build/strongNameBypass.reg",
+                "src/source-build-externals/src/azure-activedirectory-identitymodel-extensions-for-dotnet/build/strongNameBypass2.reg",
+                "src/source-build-externals/src/humanizer/src/Humanizer.Tests*",
+                "src/source-build-externals/src/newtonsoft-json/Src/Newtonsoft.Json.Tests/SpaceShipV2.bson"
+            ],
             "exclude": [
                 "src/application-insights/**/*.exe",
                 "src/application-insights/**/*.dll",
