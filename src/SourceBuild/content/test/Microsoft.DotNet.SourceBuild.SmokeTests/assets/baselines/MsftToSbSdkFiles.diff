@@ -20,6 +20,7 @@ index ------------
 -./packs/Microsoft.NETCore.App.Host.portable-rid/
 -./packs/Microsoft.NETCore.App.Host.portable-rid/x.y.z/
 -./packs/Microsoft.NETCore.App.Host.portable-rid/x.y.z/runtimes/
+somedifference
 -./packs/Microsoft.NETCore.App.Host.portable-rid/x.y.z/runtimes/portable-rid/
 -./packs/Microsoft.NETCore.App.Host.portable-rid/x.y.z/runtimes/portable-rid/native/
 -./packs/Microsoft.NETCore.App.Host.portable-rid/x.y.z/runtimes/portable-rid/native/apphost
