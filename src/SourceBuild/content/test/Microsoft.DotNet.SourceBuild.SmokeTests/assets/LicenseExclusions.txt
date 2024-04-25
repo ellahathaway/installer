@@ -14,10 +14,10 @@
 
 # False positive
 src/arcade/Documentation/UnifiedBuild/VMR-Permissible-Sources.md|free-unknown
+src/arcade/src/Microsoft.DotNet.Build.Tasks.Installers/build/rpm_templates/copyright|cecill-c
 src/arcade/src/Microsoft.DotNet.XUnitAssert/src/README.md|free-unknown
 
 # Doesn't apply to code
-src/arcade/eng/xcopy-msbuild/msbuild.nuspec|ms-visual-2015-sdk
 src/arcade/src/Microsoft.DotNet.Arcade.Sdk/tools/Licenses/*
 
 # Applies to installer, not source
