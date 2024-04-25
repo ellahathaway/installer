@@ -13,12 +13,8 @@
 #
 
 # False positive
-src/arcade/Documentation/UnifiedBuild/Foundational-Concepts.md
 src/arcade/Documentation/UnifiedBuild/VMR-Permissible-Sources.md|free-unknown
-src/arcade/src/Microsoft.DotNet.Build.Tasks.Installers/src/BuildFPMToolPreReqs.cs|json
-src/arcade/src/Microsoft.DotNet.Build.Tasks.Installers/build/rpm_templates/copyright|cecill-c
 src/arcade/src/Microsoft.DotNet.XUnitAssert/src/README.md|free-unknown
-src/arcade/src/SignCheck/SignCheck/THIRD-PARTY-NOTICES.TXT
 
 # Doesn't apply to code
 src/arcade/eng/xcopy-msbuild/msbuild.nuspec|ms-visual-2015-sdk
@@ -65,12 +61,9 @@ src/deployment-tools/THIRD-PARTY-NOTICES.TXT|unknown-license-reference
 src/diagnostics/THIRD-PARTY-NOTICES.TXT|codesourcery-2004
 
 #
-# efcore
 #
 
 # False positive
-src/efcore/test/EfCore.Tests/ChangeTracking/ComplexPropertyEntryTest.cs|proprietary-license
-src/efcore/test/EfCore.Tests/ChangeTracking/MemberEntryTest.cs|proprietary-license
 
 #
 # fsharp
