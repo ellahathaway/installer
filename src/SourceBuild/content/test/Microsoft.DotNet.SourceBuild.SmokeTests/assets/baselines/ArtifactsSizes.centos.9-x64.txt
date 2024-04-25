@@ -22,6 +22,7 @@ Microsoft.AspNetCore.Analyzers.x.y.z.nupkg: 17835
 Microsoft.AspNetCore.App.Ref.x.y.z.nupkg: 2853822
 Microsoft.AspNetCore.App.Runtime.banana-rid.x.y.z.nupkg: 10084539
 Microsoft.AspNetCore.Authorization.x.y.z.nupkg: 36525
+Some change
 Microsoft.AspNetCore.Components.Analyzers.x.y.z.nupkg: 28123
 Microsoft.AspNetCore.Components.Authorization.x.y.z.nupkg: 22084
 Microsoft.AspNetCore.Components.Forms.x.y.z.nupkg: 29990
