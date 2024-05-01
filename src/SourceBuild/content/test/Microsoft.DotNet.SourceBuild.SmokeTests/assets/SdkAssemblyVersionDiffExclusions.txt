@@ -23,4 +23,3 @@
 ./sdk/**/System.Security.Cryptography.Pkcs.dll
 ./sdk/**/System.Security.Cryptography.ProtectedData.dll
 ./sdk/x.y.z/System.Security.Cryptography.Xml.dll
-
