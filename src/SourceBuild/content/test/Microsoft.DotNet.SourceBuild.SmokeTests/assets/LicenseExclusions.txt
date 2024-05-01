@@ -13,15 +13,11 @@
 #
 
 # False positive
-src/arcade/Documentation/UnifiedBuild/Foundational-Concepts.md
 src/arcade/Documentation/UnifiedBuild/VMR-Permissible-Sources.md|free-unknown
-src/arcade/src/Microsoft.DotNet.Build.Tasks.Installers/src/BuildFPMToolPreReqs.cs|json
 src/arcade/src/Microsoft.DotNet.Build.Tasks.Installers/build/rpm_templates/copyright|cecill-c
 src/arcade/src/Microsoft.DotNet.XUnitAssert/src/README.md|free-unknown
-src/arcade/src/SignCheck/SignCheck/THIRD-PARTY-NOTICES.TXT
 
 # Doesn't apply to code
-src/arcade/eng/xcopy-msbuild/msbuild.nuspec|ms-visual-2015-sdk
 src/arcade/src/Microsoft.DotNet.Arcade.Sdk/tools/Licenses/*
 
 # Applies to installer, not source
@@ -63,14 +59,6 @@ src/deployment-tools/THIRD-PARTY-NOTICES.TXT|unknown-license-reference
 
 # False positive
 src/diagnostics/THIRD-PARTY-NOTICES.TXT|codesourcery-2004
-
-#
-# efcore
-#
-
-# False positive
-src/efcore/test/EfCore.Tests/ChangeTracking/ComplexPropertyEntryTest.cs|proprietary-license
-src/efcore/test/EfCore.Tests/ChangeTracking/MemberEntryTest.cs|proprietary-license
 
 #
 # fsharp
@@ -162,7 +150,6 @@ src/roslyn/src/Setup/Roslyn.VsixLicense/EULA.rtf
 
 # Doc describing licenses, not applicable to source
 src/runtime/docs/project/copyright.md
-src/runtime/docs/project/glossary.md
 
 # Doc that references a license, not applicable to source
 src/runtime/docs/design/mono/web/llvm-backend.md|llvm-exception
@@ -170,16 +157,12 @@ src/runtime/src/coreclr/nativeaot/docs/compiling.md|openssl-ssleay
 
 # Installer asset, not applicable to source
 src/runtime/src/installer/pkg/LICENSE-MSFT.TXT
-src/runtime/src/installer/pkg/THIRD-PARTY-NOTICES.TXT
 
 # False positive
 src/runtime/src/libraries/System.ComponentModel.TypeConverter/src/System/ComponentModel/LicFileLicenseProvider.cs|proprietary-license
-src/runtime/src/libraries/System.Configuration.ConfigurationManager/tests/Mono/LongValidatorTest.cs|embedthis-extension
 src/runtime/src/libraries/System.Net.Sockets/tests/FunctionalTests/Connect.cs|other-permissive
-src/runtime/src/libraries/System.Net.Sockets/tests/FunctionalTests/UdpClientTest.cs|other-permissive
 src/runtime/src/libraries/System.Net.Sockets/tests/FunctionalTests/SendReceive/SendReceive.cs|other-permissive
 src/runtime/src/libraries/System.Reflection.Metadata/tests/Resources/README.md|unknown-license-reference
-src/runtime/src/libraries/System.Runtime/tests/TestModule/README.md|unknown-license-reference
 src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/XmlLicenseTransform.cs|proprietary-license
 src/runtime/src/libraries/System.ServiceModel.Syndication/tests/BasicScenarioTests.cs|unknown-license-reference
 src/runtime/src/mono/mono/mini/mini-posix.c|unknown-license-reference
@@ -192,7 +175,6 @@ src/runtime/src/libraries/System.Private.Xml.Linq/tests/XDocument.Common/InputSp
 src/runtime/src/libraries/System.Private.Xml.Linq/tests/XDocument.Common/THIRD-PARTY-NOTICE|other-permissive
 src/runtime/src/libraries/System.Runtime/tests/System.Runtime.Tests/TestModule/README.md|unknown-license-reference
 src/runtime/src/libraries/System.ServiceModel.Syndication/tests/TestFeeds/AtomFeeds/*.xml
-src/runtime/src/libraries/System.Text.RegularExpressions/tests/FunctionalTests/AttRegexTests.cs|other-permissive
 
 # Reference to a license, not applicable to source
 src/runtime/src/libraries/System.Text.Json/roadmap/images/core-components.txt|unknown-license-reference
